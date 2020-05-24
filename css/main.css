@@ -1,0 +1,131 @@
+/* ------------------- HEADER --------------------*/
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100px;
+}
+
+.nav__item:not(:last-of-type) {
+  margin-right: 80px;
+}
+
+.nav__item {
+  position: relative;
+
+  height: 100px;
+}
+
+.nav__item--active {
+  color: #fff;
+}
+
+.nav__item--active::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  right: -30px;
+  bottom: -40px;
+  height: 300%;
+  transform: translateY(-50%);
+
+  background-color: #292983;
+
+  z-index: -1;
+  opacity: 0;
+  transition:
+    transform 0.3s,
+    opacity 0.2s,
+    background-color 0.3s;
+}
+
+.nav__item--active:hover::before {
+  background-color: #3561c4;
+}
+
+.nav__item--active::before {
+  transform: translateY(-20%);
+  opacity: 1;
+}
+
+.nav__item-link {
+  display: inline-block;
+
+  font-size: 1rem;
+  line-height: 500%;
+
+  text-transform: uppercase;
+
+  transition: transform 0.3s;
+}
+
+.nav__item--active .nav__item-link {
+  transform: translateY(-10px);
+}
+
+
+/* ------------------- MAIN GRID --------------------*/
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+
+  min-height: calc(100vh - 100px);
+}
+
+.main-grid__item {
+  position: relative;
+  text-transform: uppercase;
+
+  min-height: 300px;
+  width: 100%;
+  height: 100%;
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.main-grid__item:nth-of-type(3),
+.main-grid__item:nth-of-type(9) {
+  background-color: #fffc0e;
+  backdrop-filter: hue-rotate(180deg);
+}
+
+.main-grid__item:nth-of-type(2),
+.main-grid__item:nth-of-type(12) {
+  background-color: #138fc2;
+}
+
+.main-grid__item:nth-of-type(1),
+.main-grid__item:nth-of-type(7) {
+  background-color: #f7046e;
+}
+
+.main-grid__item:nth-of-type(5),
+.main-grid__item:nth-of-type(8),
+.main-grid__item:nth-of-type(10) {
+  background-color: #292983;
+}
+
+.main-grid__item:nth-of-type(4),
+.main-grid__item:nth-of-type(6),
+.main-grid__item:nth-of-type(11) {
+  background-color: #3561c4;
+}
+
+.main-grid__item-content {
+  height: 100%;
+  width: 100%;
+
+  transition: backdrop-filter 0.4s;
+}
+
+.main-grid__item:active .main-grid__item-content,
+.main-grid__item:focus .main-grid__item-content,
+.main-grid__item:hover .main-grid__item-content {
+  backdrop-filter: hue-rotate(135deg);
+}
